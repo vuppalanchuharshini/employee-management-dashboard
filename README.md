@@ -1,152 +1,165 @@
 # Employee Management Dashboard
 
-A React.js-based Employee Management Dashboard built as part of a frontend assignment. The application demonstrates authentication flow, protected routes, dashboard summary, and employee listing using mock data, following clean UI/UX principles and modular code structure.
+A React.js–based Employee Management Dashboard built as part of a frontend assignment.  
+The application demonstrates authentication flow, protected routes, employee CRUD operations, filtering, printing, and persistent storage, following clean UI/UX principles and a modular code structure.
 
 ---
 
 ## Project Overview
 
-This project is a single-page application (SPA) developed using **React.js**. It includes:
+This project is a Single Page Application (SPA) developed using React.js.  
+It allows authenticated users to manage employee records with an intuitive and beginner-friendly interface.
 
-* Mock authentication with protected routes
-* A dashboard displaying employee statistics
-* An employee list rendered from mock data
-* Clean and maintainable folder structure
-* Modern, minimal UI styling using CSS
+### Key features include:
 
-The project is built incrementally to reflect real-world development practices.
+- Mock authentication with protected routes
+- Employee dashboard with summary statistics
+- Add, Edit, Delete employee functionality
+- Search & combined filters
+- Profile image upload with preview
+- Persistent data storage using LocalStorage
+- Print-friendly employee list
+- Clean, responsive UI with modal-based forms
+
+The project is built incrementally to reflect real-world frontend development practices.
 
 ---
 
-## Tech Stack
+## 🛠 Tech Stack Used
 
-* **React.js** (JavaScript)
-* **Vite** (for fast development setup)
-* **React Router DOM** (routing & route protection)
-* **CSS** (centralized styles folder)
-* **LocalStorage** (mock authentication state)
+- React.js (JavaScript, Functional Components, Hooks)
+- Vite (Fast development setup)
+- React Router DOM (Routing & route protection)
+- React Icons (UI icons)
+- CSS (Centralized styles folder)
+- LocalStorage
+  - Mock authentication state
+  - Persistent employee data
 
 ---
 
 ## Authentication (Mock)
 
-The application uses **mock authentication** as permitted by the assignment.
+The application uses mock authentication, as permitted by the assignment.
 
 ### Demo Credentials
 
-```
-Username: admin
-Password: admin123
-```
+- Username: `admin`
+- Password: `admin123`
 
-* Authentication state is stored in `localStorage`
-* Dashboard routes are protected
-* Unauthorized users are redirected to the login page
+### Authentication Behavior
+
+- Authentication state is stored in LocalStorage
+- Dashboard routes are protected using a ProtectedRoute
+- Unauthorized users are redirected to the login page
+- Logout clears authentication and redirects to login
+- Refreshing the page does not log the user out
 
 ---
 
-## Dashboard Features (Implemented So Far)
+## Dashboard Features (Implemented)
 
 ### Dashboard Summary
 
-* Total number of employees
-* Active employees count
-* Inactive employees count
+- Total number of employees
+- Active employees count
+- Inactive employees count
+
+---
 
 ### Employee List
 
-* Displays employee data using mock data
-* Columns include:
+Displays employee data stored locally (mock data + user-added data).
 
-  * Employee ID
-  * Profile Image
-  * Full Name
-  * Gender
-  * Date of Birth
-  * State
-  * Active / Inactive status
+Columns include:
 
-Mock data is stored locally and used to simulate real API behavior.
+- Employee ID (auto-incremented)
+- Profile Image
+- Full Name
+- Gender
+- Date of Birth
+- State
+- Active / Inactive status
+- Actions (Edit / Delete)
+
+---
+
+### Employee Management
+
+#### Add Employee
+
+- Modal-based form
+- Required fields clearly indicated
+- Profile image upload with preview
+- Ability to cancel/remove selected image before saving
+- Duplicate employee validation
+
+#### Edit Employee
+
+- Opens in modal
+- Existing data pre-filled
+- Image preview shown during edit
+
+#### Delete Employee
+
+- Confirmation popup before deletion
+
+#### Employee ID Handling
+
+- Auto-incremented ID based on existing employee records
+
+---
+
+### Search & Filters
+
+- Search employees by Name
+- Filter by:
+  - Gender
+  - Active / Inactive status
+- Filters work together (combined filtering)
+
+---
+
+### Employee Status
+
+- Toggle Active / Inactive status
+- Status reflected in dashboard summary and print view
+
+---
+
+### Print Employee List
+
+- Clean, center-aligned printable layout
+- Table headers and rows properly aligned
+- Employee status visible in print
+- Non-print elements hidden:
+  - Add Employee button
+  - Logout button
+  - Filters
+  - Action buttons
+  - Toggles
+
+---
+
+### Data Persistence
+
+- Employee data is stored in LocalStorage
+- Data remains available after page refresh
+- Simulates real API behavior without backend integration
 
 ---
 
 ## Folder Structure
 
-```
 src/
- ├─ data/              # Mock employee data
- ├─ pages/             # Page-level components (Login, Dashboard)
- ├─ routes/            # ProtectedRoute logic
- ├─ styles/            # Centralized CSS files
- │   ├─ global.css
- │   ├─ login.css
- │   └─ dashboard.css
- ├─ App.jsx
- └─ main.jsx
-```
-
----
-
-## How to Run the Project Locally
-
-1. Clone the repository
-
-```bash
-git clone <repository-url>
-```
-
-2. Navigate to the project folder
-
-```bash
-cd employee-management-dashboard
-```
-
-3. Install dependencies
-
-```bash
-npm install
-```
-
-4. Start the development server
-
-```bash
-npm run dev
-```
-
-5. Open the browser at
-
-```
-http://localhost:5173
-```
-
----
-
-## Design Decisions & Assumptions
-
-* Authentication is mocked as backend integration is out of scope
-* Mock employee data is used instead of an API
-* CSS is centralized for better maintainability
-* The project is developed incrementally with clear Git commits
-
----
-
-## Upcoming Features
-
-* Add / Edit employee form
-* Delete employee with confirmation
-* Search and combined filters
-* Active/Inactive toggle
-* Print employee list
-* UI enhancements & empty/loading states
-
----
-
-## Demo & Deliverables
-
-* GitHub Repository: Included
-* README Documentation: Included
-* Screen recording: To be added after feature completion
-
----
-
-**Note:** This README will be updated as new features are implemented.
+├─ components/ # Reusable components (EmployeeForm, etc.)
+├─ data/ # Initial mock employee data
+├─ pages/ # Page-level components (Login, Dashboard)
+├─ routes/ # ProtectedRoute logic
+├─ styles/ # Centralized CSS files
+│ ├─ global.css
+│ ├─ login.css
+│ ├─ dashboard.css
+│ └─ employeeForm.css
+├─ App.jsx
+└─ main.jsx

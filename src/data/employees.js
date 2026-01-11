@@ -1,4 +1,4 @@
-const employees = [
+const Employees = [
   {
     id: 1,
     name: "John Doe",
@@ -10,7 +10,7 @@ const employees = [
   },
   {
     id: 2,
-    name: "Aga Jordan",
+    name: "Jane",
     gender: "Female",
     dob: "1992-09-22",
     state: "Texas",
@@ -28,4 +28,4 @@ const employees = [
   },
 ];
 
-export default employees;
+export default Employees;
